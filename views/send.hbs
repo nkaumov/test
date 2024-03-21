@@ -1,0 +1,21 @@
+$(document).ready(function() {
+    $('#myForm').submit(function(event) {
+        event.preventDefault();
+        var formData = $(this).serialize();
+        $.ajax({
+            type: 'POST',
+            url: '/submit-order',
+            data: formData,
+            success: function(response) {
+                alert(response.message);
+                // здесь можно выполнить другие действия, например, обновить страницу или скрыть форму
+            },
+            error: function(xhr, status, error) {
+                alert('Ошибка: ' + xhr.responseText);
+            }
+        });
+    });
+});
+</script>
+
+
